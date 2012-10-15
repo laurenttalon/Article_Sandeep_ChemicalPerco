@@ -114,13 +114,13 @@ Front propagation is relevant to a wide range of dynamical systems such as popul
 the front propagates at a constant velocity $V_{\chi}$ with a width $l_{\chi}$ resulting from a balance between molecular diffusion and reaction rate.
 Such propagation in simple flows was addressed recently \cite{edwards02,leconte03}.
 In more complicated situations either from the chemistry \cite{kaern02,koptyug08} or the flow field \cite{schwartz08,atis12,atis12b},
-it has been reported that when the flow is opposing the chemical front, frozen , i.e.static, fronts can be observed not only for a particular flow intensity, but over a wide range of flow intensity. As these frozen states have been observed 
+it has been reported that when the flow is opposing the chemical front, frozen , i.e.static, fronts can be observed not only for a particular flow intensity, but over a wide range of flow intensity. As these frozen states have been observed
 experimentally in the flow field of packed beads porous medium, we investigated these static states with numerical simulations which have the advantage of a control of the velocity field.
 We analyze the different regimes of propagation of an autocatalytic reaction front in a heterogenous porous media. We model the heterogeneities of the porous media with a log-normal distribution of permeability (i.e. flow resistance) of standard deviation, $\sigma$ and correlation length, $\lambda$ \cite{matheron67,talon03}.
-These two parameters control the heterogeneities of the flow field in the porous medium whereas its mean velocity $\overline{U}$ characterized the flow intensity against which the reaction propagate at velocity $V_{\chi}$.  In the simulations we do observe the analogous behaviors already discovered in the experiments \cite{atis12,atis12b} front propagating upstream, downstream and especially the static state over a wide range of $\overline{U}$. We analyze the dependance of the range of static fronts 
+These two parameters control the heterogeneities of the flow field in the porous medium whereas its mean velocity $\overline{U}$ characterized the flow intensity against which the reaction propagate at velocity $V_{\chi}$.  In the simulations we do observe the analogous behaviors already discovered in the experiments \cite{atis12,atis12b} front propagating upstream, downstream and especially the static state over a wide range of $\overline{U}$. We analyze the dependance of the range of static fronts
 with $\sigma$ and $\lambda$.   These ``frozen states'' can be understood as the consequence of the flow field heterogeneities.
 An algorithm, based on percolation, is developed  to predict the boundaries in the parameter space of this static regime.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,8 +142,8 @@ The autocatalytic reaction is described by an advection reaction diffusion equat
 \end{eqnarray}
 where the mixed second-third order kinetics corresponds to Iodate-Arsenous Acid reaction used in the corresponding experiments \cite{scott94,leconte03,atis12b}; $D_0$ is the molecular diffusion coefficient and $\alpha$ the reaction rate.  The chemical reaction is initiate at
 location $x_0$ with reactants to the left and products towards the right respectively. At initiation (i.e $t = 0$)  and in absence of flow, the front thickness is zero and after a transient it achieves a
-finite thickness, $l_\chi=\sqrt{2 D_0 / \alpha}$ and a chemical wave velocity $V_\chi = \sqrt{D_0 \alpha /2}$. 
-The flow field and the reaction diffusion equation were solved using lattice Boltzmann methods (e.g \cite{talon03,talon04b,jarrige10a}). 
+finite thickness, $l_\chi=\sqrt{2 D_0 / \alpha}$ and a chemical wave velocity $V_\chi = \sqrt{D_0 \alpha /2}$.
+The flow field and the reaction diffusion equation were solved using lattice Boltzmann methods (e.g \cite{talon03,talon04b,jarrige10a}).
 In the following we analyze flow adverse to the chemical reaction; we normalize all the velocity by the chemical wave velocity $V_{\chi}$ and the length by $l_{\chi}$; as $\overline{U}$ is negative compared to $V_{\chi}$, we defined $u=-\overline{U}/V_{\chi}$ as the flow intensity control parameter.
 In the simulations, it is observed that the reaction front travels at a constant velocity, $V_f$, either downstream, upstream or remains static depending on $u$; hence $v_f=V_f/V_{\chi}$ is either negative, nul or positive respectively.
 
@@ -207,7 +207,7 @@ Figure \ref{lchi_sigma_eff}(a) shows that increasing $l_\chi/\lambda$ while keep
 \label{lchi_sigma_pred}
 \end{figure}
 
-  
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -215,7 +215,7 @@ Figure \ref{lchi_sigma_eff}(a) shows that increasing $l_\chi/\lambda$ while keep
 
 In order to account for zero velocity fronts in porous media, \cite{kaern02,koptyug08} emphasize on the role  of ``excited stagnant pockets'' that would act as point source responsible for pinning spatially the front. This argument needs however to be completed: in our numerical porous medium, we do observe static fronts despite the fact that we do not have any stagnant zones. In addition this mechanism did not explain the reason why for sufficiently large velocities the front is push back again. Indeed the later has only been observed for a more complicated chemistry in combined cellular flow and mean flow \cite{schwartz08} where stagnation points are scarce. Such a plateau was observed recently experimentally in packed beads \cite{atis12,atis12b}
 %It is unclear how a the stagnant pockets become unexcited again.
-As we do not have stagnation points but only low velocity zones, to account for the plateau, we display on figure \ref{phase_I_to_IV} the velocity fields and front shapes for different regimes. To identify the low velocity zones, we have drawn in white the iso-contours of $U=- V_{\chi}$ where $U(x,y)$ is the local velocity. From top to bottom ($D$ to $U$ regimes), $u$ decreases and the number and the extension of white lines increases. Let us first address the $FD$ transition. It likely that the main difference between regime $D$ and $F$ (the two top figures of Fig. \ref{phase_I_to_IV}) is the presence of numerous white spots in the frozen regime where locally the mean flow is lower than the chemical velocity. We observe that the front gets pinned in these zones. Inside these spots the catalysis concentration has reached one and act as a source point or zone for its neighbors. This can also explain the V-shape structure (Fig. \ref{phase_diagram} which is the solution of the source point inside an uniform 
+As we do not have stagnation points but only low velocity zones, to account for the plateau, we display on figure \ref{phase_I_to_IV} the velocity fields and front shapes for different regimes. To identify the low velocity zones, we have drawn in white the iso-contours of $U=- V_{\chi}$ where $U(x,y)$ is the local velocity. From top to bottom ($D$ to $U$ regimes), $u$ decreases and the number and the extension of white lines increases. Let us first address the $FD$ transition. It likely that the main difference between regime $D$ and $F$ (the two top figures of Fig. \ref{phase_I_to_IV}) is the presence of numerous white spots in the frozen regime where locally the mean flow is lower than the chemical velocity. We observe that the front gets pinned in these zones. Inside these spots the catalysis concentration has reached one and act as a source point or zone for its neighbors. This can also explain the V-shape structure (Fig. \ref{phase_diagram} which is the solution of the source point inside an uniform
 adverse flow \cite{atis12b}.
 
 \begin{figure}
