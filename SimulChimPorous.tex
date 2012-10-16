@@ -9,8 +9,8 @@
 % 	\usepackage{mathrsfs}
  	\usepackage{amsmath}
 % 	\usepackage{color}
-
-\usepackage{psfrag}
+% 
+% \usepackage{psfrag}
 %----- definition for figres ------------------------
 \def\figdir{./}
 %
@@ -110,8 +110,17 @@ Lab.\ FAST, B{\^a}t.\ 502, Campus Univ., Orsay, F--91405, France.\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Front propagation is relevant to a wide range of dynamical systems such as population balance \cite{fisher37,kolmogoroff37}, chemical reactions \cite{scott94}, plasma physics \cite{beule98}, epidemics \cite{russell04}, and chemotaxis \cite{Adler66} to mention a few of them. In stagnant fluids, the dynamic of autocatalytic reaction front propagation is well understood \cite{fisher37,kolmogoroff37,scott94} :
+Reactive front propagations are relevant to a wide range of dynamical systems such as population balance \cite{fisher37,kolmogoroff37}, chemical reactions \cite{scott94}, plasma physics \cite{beule98}, epidemics \cite{russell04}, and chemotaxis \cite{Adler66} to mention a few of them.
+The dynamic of autocatalytic chemical  reaction in stagnant fluids is now well understood \cite{fisher37,kolmogoroff37,scott94}:
 the front propagates at a constant velocity $V_{\chi}$ with a width $l_{\chi}$ resulting from a balance between molecular diffusion and reaction rate.
+In the present paper, we are interested in third order autocatalytic reaction which can be described by an advection reaction diffusion equation for the concentration $C$ of the reactants
+\begin{eqnarray}
+  \frac{\partial c}{\partial t} + \vec{\bigtriangledown}.(c \; \vec{U}) & = & D_0 \Delta c + \alpha c^2(1 - c)
+\label{pt_trans}
+\end{eqnarray}
+where the mixed second-third order kinetics corresponds to Iodate-Arsenous Acid reaction used in the corresponding experiments \cite{scott94,leconte03,atis12b}; $D_0$ is the molecular diffusion coefficient and $\alpha$ the reaction rate.
+In absence of flow, the front thickness is after a transient it achieves a finite thickness, $l_\chi=\sqrt{2 D_0 / \alpha}$ and a chemical wave velocity $V_\chi = \sqrt{D_0 \alpha /2}$.
+
 Such propagation in simple flows was addressed recently \cite{edwards02,leconte03}.
 In more complicated situations either from the chemistry \cite{kaern02,koptyug08} or the flow field \cite{schwartz08,atis12,atis12b},
 it has been reported that when the flow is opposing the chemical front, frozen , i.e.static, fronts can be observed not only for a particular flow intensity, but over a wide range of flow intensity. As these frozen states have been observed
@@ -135,14 +144,7 @@ pdf(f)\propto exp(-\frac{(f-f_0)^2}{2\sigma_f^2}) \\
 where $\hat .$ denotes Fourier transform.
 The heterogeneities of the porous media are controlled by the harmonic mean permeability $K_0 = exp(f_0)$, the standard deviation $\sigma_f$ and the correlation length  $\lambda = \pi / k_0$.
  A pressure gradient, applied along the $x$ direction, generates a flow field of mean velocity $\overline{U}$.
-The autocatalytic reaction is described by an advection reaction diffusion equation for the concentration $C$ of the reactants
-\begin{eqnarray}
-  \frac{\partial c}{\partial t} + \vec{\bigtriangledown}.(c \; \vec{U}) & = & D_0 \Delta c + \alpha c^2(1 - c)
-\label{pt_trans}
-\end{eqnarray}
-where the mixed second-third order kinetics corresponds to Iodate-Arsenous Acid reaction used in the corresponding experiments \cite{scott94,leconte03,atis12b}; $D_0$ is the molecular diffusion coefficient and $\alpha$ the reaction rate.  The chemical reaction is initiate at
-location $x_0$ with reactants to the left and products towards the right respectively. At initiation (i.e $t = 0$)  and in absence of flow, the front thickness is zero and after a transient it achieves a
-finite thickness, $l_\chi=\sqrt{2 D_0 / \alpha}$ and a chemical wave velocity $V_\chi = \sqrt{D_0 \alpha /2}$.
+  The chemical reaction is initiate ($t = 0$) at location $x_0$ with reactants to the left and products towards the right respectively. 
 The flow field and the reaction diffusion equation were solved using lattice Boltzmann methods (e.g \cite{talon03,talon04b,jarrige10a}).
 In the following we analyze flow adverse to the chemical reaction; we normalize all the velocity by the chemical wave velocity $V_{\chi}$ and the length by $l_{\chi}$; as $\overline{U}$ is negative compared to $V_{\chi}$, we defined $u=-\overline{U}/V_{\chi}$ as the flow intensity control parameter.
 In the simulations, it is observed that the reaction front travels at a constant velocity, $V_f$, either downstream, upstream or remains static depending on $u$; hence $v_f=V_f/V_{\chi}$ is either negative, nul or positive respectively.
@@ -175,8 +177,8 @@ In the simulations, it is observed that the reaction front travels at a constant
 \begin{figure}
 	\centering
 	\includegraphics[width = 1.0\hsize]{\figdir/v_f_vs_v_chi_lx_0p63_sigma_0p5_laurent}
-	\caption{Front velocity $v_f=V_f /V_{\chi}$ versus average flow velocity $u=-\overline{U}/V_{\chi}$ revealing the different regimes:  $U$ and  $D$ correspond respectively to a regime of front propagation upstream and downstream whereas the plateau corresponds to static, i.e. frozen fronts ($F$). $\sigma=0.5$ and $l_\chi / \lambda = 0.126 $ $\sigma=0.5$ and $l_\chi / \lambda = 0.126 $ The figures shows the evolution of the reaction front every $20,000$ time step unit in each regime.
-\label{phase_diagram}}
+	\caption{\label{phase_diagram} Front velocity $v_f=V_f /V_{\chi}$ versus average flow velocity $u=-\overline{U}/V_{\chi}$ revealing the different regimes:  $U$ and  $D$ correspond respectively to a regime of front propagation upstream and downstream whereas the plateau corresponds to static, i.e. frozen fronts ($F$). $\sigma=0.5$ and $l_\chi / \lambda = 0.126 $ $\sigma=0.5$ and $l_\chi / \lambda = 0.126 $ The figures shows the evolution of the reaction front every $20,000$ time step unit in each regime.
+}
 \end{figure}
 
 
@@ -203,8 +205,7 @@ Figure \ref{lchi_sigma_eff}(a) shows that increasing $l_\chi/\lambda$ while keep
       \onefigure[width=0.8\hsize]{\figdir/u_stop_vs_lx_rev}
 %         \flushleft{(b)}
       \onefigure[width=0.8\hsize]{\figdir/u_stop_vs_sigma_rev_lau}
-	\caption{ Diagram of the observed regimes ($U$, $F$, $D$). The circles corresponds to observation of frozen fronts( $F$ : $v_f=0$) , hence the vertical give the $u$ variation of the frozen state plateau. (a) $u$ versus $l_\chi/\lambda$ at constant $\sigma=0.5$. (b) $u$ versus $\sigma$ for $l_\chi/\lambda=0.126$. The line though the data are transition lines between different regimes explained in the text.}
-\label{lchi_sigma_pred}
+	\caption{\label{lchi_sigma_pred} Diagram of the observed regimes ($U$, $F$, $D$). The circles corresponds to observation of frozen fronts( $F$ : $v_f=0$) , hence the vertical give the $u$ variation of the frozen state plateau. (a) $u$ versus $l_\chi/\lambda$ at constant $\sigma=0.5$. (b) $u$ versus $\sigma$ for $l_\chi/\lambda=0.126$. The line though the data are transition lines between different regimes explained in the text.}
 \end{figure}
 
 
@@ -213,9 +214,9 @@ Figure \ref{lchi_sigma_eff}(a) shows that increasing $l_\chi/\lambda$ while keep
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 
-In order to account for zero velocity fronts in porous media, \cite{kaern02,koptyug08} emphasize on the role  of ``excited stagnant pockets'' that would act as point source responsible for pinning spatially the front. This argument needs however to be completed: in our numerical porous medium, we do observe static fronts despite the fact that we do not have any stagnant zones. In addition this mechanism did not explain the reason why for sufficiently large velocities the front is push back again. Indeed the later has only been observed for a more complicated chemistry in combined cellular flow and mean flow \cite{schwartz08} where stagnation points are scarce. Such a plateau was observed recently experimentally in packed beads \cite{atis12,atis12b}
-%It is unclear how a the stagnant pockets become unexcited again.
-As we do not have stagnation points but only low velocity zones, to account for the plateau, we display on figure \ref{phase_I_to_IV} the velocity fields and front shapes for different regimes. To identify the low velocity zones, we have drawn in white the iso-contours of $U=- V_{\chi}$ where $U(x,y)$ is the local velocity. From top to bottom ($D$ to $U$ regimes), $u$ decreases and the number and the extension of white lines increases. Let us first address the $FD$ transition. It likely that the main difference between regime $D$ and $F$ (the two top figures of Fig. \ref{phase_I_to_IV}) is the presence of numerous white spots in the frozen regime where locally the mean flow is lower than the chemical velocity. We observe that the front gets pinned in these zones. Inside these spots the catalysis concentration has reached one and act as a source point or zone for its neighbors. This can also explain the V-shape structure (Fig. \ref{phase_diagram} which is the solution of the source point inside an uniform
+In order to account for zero velocity fronts in porous media, \cite{kaern02,koptyug08} emphasize on the role  of ``excited stagnant pockets'' that would act as point source responsible for pinning spatially the front. This argument needs however to be completed: in our numerical porous medium, we do observe static fronts despite the fact that we do not have any stagnant zones. In addition this mechanism did not explain the reason why for sufficiently large velocities the front is push back again. Indeed the later has only been observed for a more complicated chemistry in combined cellular flow and mean flow \cite{schwartz08} where stagnation points are scarce. Such a plateau was observed recently experimentally in packed beads \cite{atis12,atis12b}.
+As we do not have stagnation points but only low velocity zones, to account for the plateau, we display on figure \ref{phase_I_to_IV} the velocity fields and front shapes for different regimes. To identify the low velocity zones, we have drawn in white the iso-contours of $U=- V_{\chi}$ where $U(x,y)$ is the local velocity. From top to bottom ($D$ to $U$ regimes), $u$ decreases and the number and the extension of white lines increases. Let us first address the $FD$ transition.
+It likely that the main difference between regime $D$ and $F$ (the two top figures of Fig. \ref{phase_I_to_IV}) is the presence of numerous white spots in the frozen regime where locally the mean flow is lower than the chemical velocity. We observe that the front gets pinned in these zones. Inside these spots the catalysis concentration has reached one and act as a source point or zone for its neighbors. This can also explain the V-shape structure (Fig. \ref{phase_diagram} which is the solution of the source point inside an uniform
 adverse flow \cite{atis12b}.
 
 \begin{figure}
@@ -223,8 +224,7 @@ adverse flow \cite{atis12b}.
   \onefigure[width=0.8\hsize]{\figdir/downstream_front_casenum_1277_rev_I}
   \onefigure[width=0.8\hsize]{\figdir/upstream_front_casenum_1289_rev_I}
   \onefigure[width=0.8\hsize]{\figdir/upstream_front_casenum_1295_rev_I}
- \label{phase_I_to_IV}
-\caption{ In grey scale, velocity field. White lines correspond to the velocity iso-contours  $U(x,y)=- V_{\chi}$ where $U(x,y)$ is the local velocity. From top to bottom, the figures correspond to the downstream regime ($D$, $u=4$), the frozen regime ($F$, $u=3$) close to the $FD$ transition,  the frozen regime ($F$, $u=1.5$) close to the $UF$ transition. Fluid is flowing from left to right whereas the chemical wave in the absence of flow would propagates from right to left. In each figure, the vertical, almost straight line corresponds to the initial front position; the jagger lines correspond to the frozen front for the $F$ regime, the ultimate position in the frame before the front get out of the medium to the right for $D$ regime and to the left for the $U$ regime.}
+ \caption{\label{phase_I_to_IV} In grey scale, velocity field. White lines correspond to the velocity iso-contours  $U(x,y)=- V_{\chi}$ where $U(x,y)$ is the local velocity. From top to bottom, the figures correspond to the downstream regime ($D$, $u=4$), the frozen regime ($F$, $u=3$) close to the $FD$ transition,  the frozen regime ($F$, $u=1.5$) close to the $UF$ transition. Fluid is flowing from left to right whereas the chemical wave in the absence of flow would propagates from right to left. In each figure, the vertical, almost straight line corresponds to the initial front position; the jagger lines correspond to the frozen front for the $F$ regime, the ultimate position in the frame before the front get out of the medium to the right for $D$ regime and to the left for the $U$ regime.}
 \end{figure}
 
 These observation lead to a first estimate of the transition velocity $u_{FD}$ between frozen and downstream regimes.
@@ -244,10 +244,10 @@ The corresponding criteria is been plotted on Figure \ref{lchi_sigma_pred} (thic
 %The evolution of the transition velocity $u_{st}$ with the two parameters can then be interpreted as the %probability to have a velocity zone weaker than the chemical reaction which as a width larger than the %chemical reaction.
 Increasing $\sigma$ or increasing $\lambda/l_{\chi}$, increases naturally the probability to pin the front.\\
 Even if the variation with the disorder of the transition velocity $U\leftrightarrow F$ is not very large ,
-Figure \ref{phase_I_to_IV}(c-d) gives some insight of the physical mechanism at work. As $u$ is decreased, the number and the size of weak velocity zones increases. In these regions, where the flow is weaker, the front can in principle propagate upstream and then stop only when it reaches the left end-side of these zones. Consequently, we can reasonably think that one condition for the front to travel upstream is that it found a path connecting the initial front position to the left end side of the system where the flow is weaker than the chemical reaction. This is reminiscent of percolation like approach. Therefore the  $UF$ transition is likely to be determined by a path-criteria which is found using  a method analogous to the max-min algorithm \cite{hansen87}. At the transition the chemical velocity $V_{\chi }$ has to be equal to the maximum velocity found on the minimal velocity path :
+Figure \ref{phase_I_to_IV}(c-d) gives some insight of the physical mechanism at work. As $u$ is decreased, the number and the size of weak velocity zones increase. In these regions, where the flow is weaker, the front can in principle propagate upstream and then stop only when it reaches the left end-side of these zones. Consequently, we can reasonably think that one condition for the front to travel upstream is that it found a path connecting the initial front position to the left end side of the system where the flow is weaker than the chemical reaction. This is reminiscent of percolation like approach. Therefore the  $UF$ transition is likely to be determined by a path-criteria which is found using  a method analogous to the max-min algorithm \cite{hansen87}. At the transition the chemical velocity $V_{\chi }$ has to be equal to the maximum velocity found on the minimal velocity path :
 $$U_{perc} = \max_{\cal C} (\min_{\cal C} U(x,y)),$$
  where $\cal C$ are pathes connecting the left-end side of the domain to the initial position of the front.
-We can be briefly described the sequences used for this determination. Which consists in introducing a matrix $C_{i,j}$ defined as being the maximal velocity along all the minimal velocity pathes connecting the first column to the point $(i,j)$.
+We can briefly describe the sequences used for this determination. It consists in introducing a matrix $C_{i,j}$ defined as being the maximal velocity along all the minimal velocity pathes connecting the first column to the point $(i,j)$.
 
 \begin{enumerate}
  \item Initialize a matrix, $C_{1,j}$ which consists of the velocity field at the inlet. ($i,j$ correspond to the $(x,y)$ coordinate respectively).
@@ -257,21 +257,19 @@ We can be briefly described the sequences used for this determination. Which con
  \item $u_{perc} = \min \{C(N_x,[1,2,3...N_y])\}$ where $N_x, N_y$ are the number of points in the $x,y$ direction respectively.
 \end{enumerate}
 The percolation path can be found by following the reverse algorithm.
-Figure \ref{perc_path} shows the percolation path corresponding to the percolation velocity for the velocity field corresponding to figure \ref{perm_vel_field}. Using the aforementioned algorithm we compute $U_{perc}$ and compare it to the observed $UF$ transition for various $l_\chi$ and $\sigma$ in figure \ref{lchi_sigma_pred}(a - b) marked by the bottom solid lines. The percolation velocity gives an accurate estimate of the critical velocity for transition from upstream regime to the frozen one. Indeed the variations with either parameter is small, the trend is there;
+Figure \ref{perc_path} shows the percolation path corresponding to the percolation velocity for the velocity field corresponding to figure \ref{perm_vel_field}. Using the aforementioned algorithm we compute $U_{perc}$ and compare it to the observed $UF$ transition for various $l_\chi$ and $\sigma$ in figure \ref{lchi_sigma_pred}(a - b) marked by the bottom solid lines. The percolation velocity gives an accurate estimate of the critical velocity for transition from upstream regime to the frozen one. Indeed the variations with either parameter is small, but the trend is there;
 \begin{figure}
  \onefigure[width=0.99\hsize]{\figdir/percolation_path_casenum_1289}
-        \caption{Percolation path. White and Black regions correspond respectively to $U(x,y)<u_c$ à $U(x,y)>u_c$.}
-\label{perc_path}
+ \caption{\label{perc_path}Percolation path. White and Black regions correspond respectively to $U(x,y)<u_c$ and $U(x,y)>u_c$.}
 \end{figure}
 since the percolation threshold on a regular lattice is close to $1/2$, the percolation velocity satisfy $\int_{-\infty}^{u_c} pdf(u)\;du \simeq 1/2$.
-It is thus expected that the critical chemical velocity is close to mean flow velocity if the probability distribution  were symetrical.
+It is thus expected that the critical chemical velocity is close to mean flow velocity if the probability distribution  were symmetrical.
 We moreover expect that the amplitude heterogeneities and its correlation has very little influence on it which is confirmed by figure \ref{lchi_sigma_pred}.
-One should however recall that our flow  velocity field has a log-normal distribution and has anisotropy, which could explain that percolation is occurring for $u>1$ and the influence of $\sigma$.
+One should however recall that our flow  velocity field has a log-normal distribution and has anisotropy, which could explain that percolation is occurring for $u>1$ and is sensitive to $\sigma$.
 
 
 One can note on Fig. \ref{perc_path} that close to percolation, higher velocity regions are also percolating to the right end side. The front is however propagating upstream because of the autocatalytic process. Whenever the reaction has managed to propagate upstream, it acts as a source of catalysis from that point and can then excited neighbors. The upstream propagation has therefore an ascendent to the downstream one.
-In addition, one can note that the front is going upstream slightly before percolation. This can be explained also by the autocatalytic process: due to the fact that a low velocity cluster is ``excited'' it can excite other neighboring clusters that might spanned more upstream. Non-percolating clusters might then be exited further and further upstream.
-Another mechanism could be to the finite width of the chemical front. One cluster might excite the other if the distance between the two is smaller than the chemical length.
+In addition, one can note that the front is going upstream slightly before percolation. This can be explained also by the autocatalytic process: due to the fact that a low velocity cluster is ``excited'' it can excite other neighboring clusters that might spanned more upstream. Non-percolating clusters might then be exited further and further upstream. Note that the finite width of the chemical front, in which case, a cluster can excite the other if the distance between the two is smaller than the chemical length.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
